@@ -19,13 +19,32 @@ namespace Snaky
             Render();//ренденр
         }
 
-        public void Draw()
+        public void Draw(Snake snake, Food food)
         {
-            for (int i = 0; i < height; i++)
+            Console.SetCursorPosition(0, 0);
+
+            for (int y = 0; y < height; y++)
             {
-                for (int j = 0; j < width; j++)
+                for (int x = 0; x < width; x++)
                 {
-                    Console.Write(field[i][j]);
+                    Coordinate current = new Coordinate(x, y);
+
+                    if (snake.Head.X == x && snake.Head.Y == y)
+                    {
+                        Console.Write('@');
+                    }
+                    else if (snake.Body.Any(b => b.X == x && b.Y == y))
+                    {
+                        Console.Write('o');
+                    }
+                    else if (food.Pos.X == x && food.Pos.Y == y)
+                    {
+                        Console.Write('*');
+                    }
+                    else
+                    {
+                        Console.Write(field[y][x]);
+                    }
                 }
                 Console.WriteLine();
             }

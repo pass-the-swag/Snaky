@@ -47,5 +47,10 @@ namespace Snaky
             all.AddRange(Body);
             return all;
         }
+
+        public void Eat()
+        {
+            Length++;
+        }
     }
 }

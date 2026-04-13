@@ -13,7 +13,7 @@ namespace Snaky
 
         public Vector()
         {
-            this.coordinate = new Coordinate(0, 1);
+            this.coordinate = new Coordinate(0, 0);//переделать get 
         }
 
         public Vector(Coordinate coord)
